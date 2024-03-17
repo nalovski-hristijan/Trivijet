@@ -61,11 +61,13 @@ dependencies {
     implementation libs.androidx.lifecycle.livedata.ktx
 
     //Dagger Hilt
-    implementation "com.google.dagger:hilt-android:2.44"
-    kapt "com.google.dagger:hilt-compiler:2.44"
+    implementation 'com.google.dagger:hilt-android:2.51'
+    annotationProcessor 'com.google.dagger:hilt-compiler:2.51'
+    kapt "com.google.dagger:hilt-compiler:2.51"
 
     //Retrofit
-    implementation libs.retrofit
+    implementation libs.retrofit.v290
+    implementation libs.converter.gson
 
     implementation libs.androidx.core.ktx
     implementation libs.androidx.lifecycle.runtime.ktx
