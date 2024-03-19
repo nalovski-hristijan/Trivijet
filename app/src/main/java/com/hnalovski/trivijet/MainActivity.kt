@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.hnalovski.trivijet.screens.QuestionsViewModel
+import com.hnalovski.trivijet.screens.TriviaHome
 import com.hnalovski.trivijet.ui.theme.TrivijetTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.log
@@ -28,32 +29,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    TriviaHome()
                 }
             }
         }
     }
 }
 
-@Composable
-fun TriviaHome(viewModel: QuestionsViewModel = hiltViewModel()) {
-    Questions(viewModel)
-}
-
-@Composable
-fun Questions(viewModel: QuestionsViewModel) {
-    val questions = viewModel.data.value.data?.toMutableList()
-    if (viewModel.data.value.loading == true) {
-        Log.d("LOADING", "Questions: loading ...")
-    } else {
-        Log.d("LOADING", "Questions: loading stopped ")
-        questions?.forEach{questionItem ->
-            Log.d("RESULT", "Questions: ${questionItem.question}")
-        }
-    }
-    Log.d("SIZE", "Questions: ${questions?.size}")
-
-}
 
 @Preview(showBackground = true)
 @Composable
