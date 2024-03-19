@@ -15,6 +15,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.hnalovski.trivijet.screens.QuestionsViewModel
 import com.hnalovski.trivijet.screens.TriviaHome
 import com.hnalovski.trivijet.ui.theme.TrivijetTheme
+import com.hnalovski.trivijet.util.AppColors
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.log
 
@@ -27,7 +28,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = AppColors.mDarkPurple
                 ) {
                     TriviaHome()
                 }
