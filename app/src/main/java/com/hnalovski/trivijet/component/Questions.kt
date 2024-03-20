@@ -88,8 +88,7 @@ fun QuestionDisplay(
     val pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 10f), 0f)
     Surface(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(4.dp),
+            .fillMaxSize(),
         color = AppColors.mDarkPurple
     ) {
         Column(
@@ -153,8 +152,25 @@ fun QuestionDisplay(
                                 }
                             )
                         )
+                        val annotatedString = buildAnnotatedString {
+                            withStyle(
+                                style = SpanStyle(
+                                    fontWeight = FontWeight.Light,
+                                    color = if (correctAnswerState.value == true && index == answerState.value) {
+                                        Color.Green
+                                    } else if (correctAnswerState.value == false && index == answerState.value) {
+                                        Color.Red
+                                    } else {
+                                        AppColors.mOffWhite
+                                    }, fontSize = 17.sp
+                                )
+                            ) {
+                                append(answer)
+                            }
+                        }
 
-                        Text(text = answer)
+                        Text(text = annotatedString, modifier = Modifier.padding(6.dp))
+
                     }
                 }
 
