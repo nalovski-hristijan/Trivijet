@@ -42,6 +42,5 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     TrivijetTheme {
-
     }
 }
